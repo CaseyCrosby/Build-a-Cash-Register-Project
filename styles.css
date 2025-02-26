@@ -1,0 +1,10 @@
+button {
+    width: fit-content;
+    height: 30px;
+}
+
+#register {
+    display: grid;
+    grid-template-columns:  1fr 7fr;
+  
+}
