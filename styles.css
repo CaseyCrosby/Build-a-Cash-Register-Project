@@ -23,6 +23,12 @@ h1 {
     font-size: 18px;
 }
 
+#change-due {
+    text-align: center;
+    margin: auto;
+    max-width: 500px;
+}
+
 #purchase-btn {
     display: flex;
     justify-content: center;

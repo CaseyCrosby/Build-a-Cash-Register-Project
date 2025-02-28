@@ -36,7 +36,7 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
     } 
   };
 
-purchaseBtn.addEventListener("click", mainFunction());
+purchaseBtn.addEventListener("click", mainFunction);
 
 
 
