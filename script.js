@@ -31,14 +31,15 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
   };
 
   const mainFunction = () => {
-    if (cash == price) {
+    if (cash.value == price) {
         changeDue.textContent = "No change due - customer paid with exact cash"
     } 
   };
 
-purchaseBtn.addEventListener("click", mainFunction);
+purchaseBtn.addEventListener("click", mainFunction());
 
 
 
   //console.log(cid[i][j]);
+  console.log(cash)
   console.log(cidFunction(3, 1));
