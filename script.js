@@ -25,13 +25,7 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
 
 
 
- // const cidFunction = (i, j) => {
- //   for (let i = 0; i < cid.length; i++) {
- //       for (let j = 0; j < cid[i].length; j++) {  
- //       }
- //     }
- //     return cid[i][j];
- // };
+  
 
   let changeDueNumber = cash.value - price
 
@@ -66,8 +60,9 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
       
     }
 
-  
+    
 
+  
   const mainFunction = () => {
     if (cash.value == price) {
         changeDue.textContent = "No change due - customer paid with exact cash"
@@ -76,7 +71,9 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
     } else if (price < cash.value && totalCid < changeDueNumber) {
       changeDue.textContent = "Status: INSUFFICIENT_FUNDS"
     } else  {
-      changeDue.textContent = `Status: OPEN ${change}`;
+       changeDue.innerHTML = `Status: OPEN<br> ${change.forEach(() => {
+        changeDue.innerHTML = `${change[0][0]}: $${change[0][1]}<br>`;
+      })}`;
     }
   };
 
@@ -86,4 +83,4 @@ purchaseBtn.addEventListener("click", mainFunction);
 
   //console.log(cid[i][j]);
   console.log(changeDueNumber);
-  console.log(change[0]);
+  console.log(change);
