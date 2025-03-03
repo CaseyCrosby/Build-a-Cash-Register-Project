@@ -58,28 +58,40 @@ register.innerHTML = `${cid[0][0]}: $${cid[0][1]}<br>${cid[1][0]}: $${cid[1][1]}
         change.push([currName, currAmount]);
       }
       
-    }
+    };
 
+    const changeFormat = () => {
+      change.forEach((element) => {
+        changeDue.innerHTML += `${element[0]}: $${element[1]}<br>`;
+      })
     
-
+    };
   
   const mainFunction = () => {
     if (cash.value == price) {
-        changeDue.textContent = "No change due - customer paid with exact cash"
+        changeDue.textContent = "No change due - customer paid with exact cash";
+        cash.value = '';
+        return;
     } else if (cash.value < price) {
-      changeDue.textContent = "Customer does not have enough money to purchase the item"
+      changeDue.textContent = "Customer does not have enough money to purchase the item";
+      cash.value = '';
+        return;
     } else if (price < cash.value && totalCid < changeDueNumber) {
       changeDue.textContent = "Status: INSUFFICIENT_FUNDS"
     } else  {
-       changeDue.innerHTML = `Status: OPEN<br> ${change.forEach(() => {
-        changeDue.innerHTML = `${change[0][0]}: $${change[0][1]}<br>`;
-      })}`;
+       changeDue.innerHTML = `Status: OPEN<br>`; changeFormat();
+       cash.value = '';
+        return;
     }
   };
 
 purchaseBtn.addEventListener("click", mainFunction);
 
-
+cash.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    mainFunction();
+  }
+});
 
   //console.log(cid[i][j]);
   console.log(changeDueNumber);
